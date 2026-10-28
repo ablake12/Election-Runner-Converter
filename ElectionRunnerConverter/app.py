@@ -33,7 +33,7 @@ def clean_name(name):
 @st.cache_data
 def load_master_template():
   # Your published Google Sheet CSV link
-  template_path = st.secrets["google_sheets"]["csv_url"]
+  template_path = st.secrets["template_sheets"]["csv_path"]
 
   print("Fetching latest member directory from Google Sheets...")
   response = requests.get(template_path, timeout=10)
