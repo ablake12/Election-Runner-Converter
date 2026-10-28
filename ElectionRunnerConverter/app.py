@@ -33,10 +33,10 @@ def clean_name(name):
 @st.cache_data
 def load_master_template():
   # Your published Google Sheet CSV link
-  latest_path = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTp2QsWBQ08kLTN2ycd7WORyjdRkCd5kUzRkUpHE1BDw-AQduQT81QpKq3uWFhbowzDoFcO4iwW86zQ/pub?gid=1988406993&single=true&output=csv"
+  template_path = st.secrets["google_sheets"]["csv_url"]
 
   print("Fetching latest member directory from Google Sheets...")
-  response = requests.get(latest_path, timeout=10)
+  response = requests.get(template_path, timeout=10)
   response.raise_for_status()
   df = pd.read_csv(StringIO(response.text))
   df.columns = df.columns.str.strip()
