@@ -277,7 +277,7 @@ if uploaded_file is not None:
       guest_name = row[name_column]
       unmatched_records.append({
         "Member": guest_name if pd.notna(guest_name) and str(guest_name).strip() else "Name missing",
-        "Reason": "This is a visitor who is not allowed to vote",
+        "Reason": "Visitor",
       })
 
     checked_out_records = (
