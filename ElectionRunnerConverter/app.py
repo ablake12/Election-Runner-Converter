@@ -13,7 +13,7 @@ st.set_page_config(
 
 st.title("🗳️ Election Runner CSV Generator")
 st.write(
-    "Upload the live meeting attendance CSV to generate an Election Runner import file containing only present members."
+    "Upload the live meeting attendance sheet from EntriScan to generate an Election Runner import file containing only present members. You can then upload this file to Election Runner in the voters' section."
 )
 
 
@@ -128,7 +128,8 @@ def confirm_member_removal():
   st.write(f"Remove {len(member_names)} selected member(s) from the output?")
   st.dataframe(
     pd.DataFrame({"Members to remove": member_names}),
-    height=min(300, 75 + 35 * (len(member_names) - 1)),
+    #  height=min(300, 75 + 35 * (len(member_names) - 1)),
+    height=min(300, 70 + 35 * (len(member_names) - 1)),
     hide_index=True,
   )
   cancel_col, confirm_col = st.columns(2)
@@ -403,7 +404,7 @@ if "generated_result" in st.session_state:
             "Add back": st.column_config.CheckboxColumn("Add back"),
           },
           disabled=["Member", "Email"],
-          height=min(400, 75 + 35 * (len(remaining_checked_out) - 1)),
+          height=min(400, 70 + 35 * (len(remaining_checked_out) - 1)),
           hide_index=True,
           num_rows="fixed",
         )
