@@ -534,7 +534,8 @@ if "generated_result" in st.session_state:
           st.caption("No members match that filter.")
 
     st.subheader(f"Preview Final Output ({len(final_df)} members)")
-    st.dataframe(final_df, height=300, hide_index=True)
+    # st.dataframe(final_df, height=300, hide_index=True)
+    st.dataframe(final_df, hide_index=True, height=min(300, 70 + 35 * (len(final_df) - 1)))
 
     # Convert DataFrame to downloadable CSV in memory
     csv_buffer = io.BytesIO()
